@@ -102,49 +102,16 @@ def parse2(line: str) -> int:
                 continue
 
         index += 1
-
-    # for c in line:
-    #     if state == FOUND_M:
-    #         if c == 'u':
-    #             state = FOUND_U
-    #             continue
-    #     elif state == FOUND_U:
-    #         if c == 'l':
-    #             state = FOUND_L
-    #             continue
-    #     elif state == FOUND_L:
-    #         if c == '(':
-    #             state = FOUND_LPAREN
-    #             continue
-    #     elif state == FOUND_LPAREN:
-    #         if 48 <= ord(c) <= 57:
-    #             first_str += c
-    #             continue
-    #         elif c == ',':
-    #             first_num = int(first_str)
-    #             state = FOUND_COMMA
-    #             continue
-    #     elif state == FOUND_COMMA:
-    #         if 48 <= ord(c) <= 57:
-    #             second_str += c
-    #             continue
-    #         elif c == ')':
-    #             second_num = int(second_str)
-    #             value += first_num * second_num
-    #             print(first_num, "*", second_num, "=", value)
-    #     else:
-    #         if c == 'm':
-    #             state = FOUND_M
-    #             continue
-
-    #     state = SCANNING
-    #     first_str = ''
-    #     second_str = ''
     return value
 
+lines = []
 results_per_line = []
 for line in sys.stdin:
-    res = parse2(line)
+    res = parse1(line)
     results_per_line.append(res)
-    print(res)
-print("total:", sum(results_per_line))
+
+    lines.append(line)
+print("part 1:", sum(results_per_line))
+input = "".join(lines)
+res = parse2(input)
+print("part 2:", res)
