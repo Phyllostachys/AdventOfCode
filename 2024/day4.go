@@ -27,20 +27,23 @@ func main() {
 
 	fmt.Println(width, height)
 	data := strings.Join(lines, "")
-	var total int
+	var total_xmas int
+	var total_x_mas int
 	// fmt.Println(data)
 	// fmt.Println(get_char(data, width, 5, 5))
 	for y := range height {
 		for x := range width {
 			if get_char(data, width, x, y) == X {
-				total += check_0(data, width, x, y)
-				total += check_45(data, width, x, y)
-				total += check_90(data, width, x, y)
-				total += check_135(data, width, x, y)
-				total += check_180(data, width, x, y)
-				total += check_225(data, width, x, y)
-				total += check_270(data, width, x, y)
-				total += check_315(data, width, x, y)
+				total_xmas += check_0(data, width, x, y)
+				total_xmas += check_45(data, width, x, y)
+				total_xmas += check_90(data, width, x, y)
+				total_xmas += check_135(data, width, x, y)
+				total_xmas += check_180(data, width, x, y)
+				total_xmas += check_225(data, width, x, y)
+				total_xmas += check_270(data, width, x, y)
+				total_xmas += check_315(data, width, x, y)
+			} else if get_char(data, width, x, y) == A {
+				total_x_mas += check_x_mas(data, width, x, y)
 			}
 		}
 	}
@@ -158,4 +161,8 @@ func check_315(data string, width, x, y int) int {
 		return 1
 	}
 	return 0
+}
+
+func check_x_mas(data string, width, x, y int) int {
+	reutrn 0
 }
